@@ -12,12 +12,12 @@
   function current_ID()
   {
     user_id = getCookie("user_id");
-    document.getElementById("current_ID").innerHTML = user_id;
+    document.getElementById("current_ID").value = user_id;
   }
   function new_ID()
   {
     value = Math.floor(Math.random()*100000000000000);
-    document.getElementById("current_ID").innerHTML = value; 
+    document.getElementById("current_ID").value = value; 
     deleteCookie("user_id");
     setCookie("user_id",value,0);
   }
@@ -29,17 +29,22 @@
 <div data-role="page" id="home" data-theme="b">
   <div data-role="header">
     <a href="main.html" data-role="button" data-icon="home">Home</a>
-    <h1>{\ New User /}</h1>
+    <h1>{\ User Data /}</h1>
   </div>
   <div data-role="content">
-    <h1>It looks like you are new here... click below to create an ID:</h1>
+    <div data-role="fieldcontain">
+      <label for="name_input">NAME:</label>
+      <input type="text" name="name_input" id="name_input" value="Enter your name here" onclick="javascript:if($(this).val() == 'Enter your name here') {$(this).val('');} return false;" />
+    </div>
+    <div data-role="fieldcontain">
+      <label for="current_ID">ID:</label>
+      <input type="text" name="current_ID" id="current_ID" disabled="true" />
+    </div>
     <button data-role="button" data-inset="false" data-theme="b" onclick="javascript:new_ID()" >Get another ID!</button>
-    <h1>Your current ID will be:</h1>
-    <div id="current_ID">None</div>
     <button data-role="button" data-inset="false" data-theme="b" onclick="javascript:deleteCookie('user_id');current_ID()" >DELETE ID!</button>
   </div>
   <div data-role="footer" data-position="fixed">
-    <a href="spec.html">&copy; Alonso Fonseca Works</a>
+    <a href="index.html">&copy; Alonso Fonseca, still beta</a>
   </div>
 </div>
 
