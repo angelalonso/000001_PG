@@ -1,0 +1,19 @@
+#### MySQL
+
+CREATE USER 'angelapp'@'localhost' IDENTIFIED BY 'some_pass';
+CREATE DATABASE angelapp;
+GRANT DELETE, INSERT, SELECT, UPDATE ON angelapp . * TO 'angelapp'@'localhost';
+
+USE angelapp;
+CREATE TABLE user ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+         name VARCHAR(100)
+       );
+CREATE TABLE poke ( id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+         userid_from INT NOT NULL,
+         userid_to INT NOT NULL,
+         received BOOLEAN NOT NULL
+       );
+
+
+#### jQuery
+http://themeroller.jquerymobile.com/?ver=1.4.5&style_id=20141223-1
