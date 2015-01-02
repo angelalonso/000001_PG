@@ -1,5 +1,5 @@
 
-function initialize_boxes(username)
+function initialize_boxes()
   {
     server='192.168.10.212:8000';
     $.ajax({
