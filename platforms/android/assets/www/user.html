@@ -14,7 +14,7 @@
 
 <div data-role="page" id="home" data-theme="b">
   <div data-role="header">
-    <a href="main.html" data-role="button" data-icon="home">Home</a>
+    <button data-role="button" data-inset="false" data-icon="gear" data-theme="a" onclick="javascript:window.location='index.html'" >Home</button>
     <h1>{\ Your Data /}</h1>
   </div>
   <div data-role="content">
@@ -30,9 +30,8 @@
       <label for="userid_html_user">ID:</label>
       <input type="text" name="userid_html_user" id="userid_html_user" disabled="true" />
     </div>
-    <button data-role="button" data-inset="false" data-theme="b" data-icon="check" onclick="javascript:save_userdata()" >LOG ME IN!</button>
-    <button data-role="button" data-inset="false" data-theme="b" onclick="javascript:new_ID()" >Get another ID!</button>
-    <button data-role="button" data-inset="false" data-theme="b" data-icon="delete" onclick="javascript:deleteCookie('user_id');initialize_boxes()" >LOG ME OUT!</button>
+    <button data-role="button" data-inset="false" data-theme="b" data-icon="check" onclick="javascript:save_userdata();refresh_data_user()" >LOG ME IN!</button>
+    <button data-role="button" data-inset="false" data-theme="b" data-icon="delete" onclick="javascript:cleanup_all();refresh_data_user()" >LOG ME OUT!</button>
   </div>
   <div data-role="footer" data-position="fixed">
     <a href="index.html">&copy; Alonso Fonseca, still beta</a>
@@ -41,7 +40,7 @@
 
 
 <script type="text/javascript">
-  initialize_boxes();
+  refresh_data_user();
 </script>
 </body>
 </html>

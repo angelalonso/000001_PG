@@ -5,14 +5,14 @@ function initialize_boxes()
     $.ajax({
       url: 'http://' + server + '/user/1',
       success: function(result) {
-        document.getElementById("current_pokes").innerHTML = result;
+        document.getElementById("userpokes_html_main").innerHTML = result;
       },
       error: function(e,result) {
         alert(result + e); 
       }
     });
-    user_id = getCookie("user_id");
-    document.getElementById("current_ID").innerHTML = user_id;
+    userid_js = getCookie("username");
+    document.getElementById("username_html_main").innerHTML = userid_js;
   }
 
 function addone(username)
