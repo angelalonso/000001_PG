@@ -20,7 +20,6 @@ function refresh_data_user()
 }
 
 
-
 function getnew_userid(){
   server='192.168.10.212:8000';
   $.ajax({
@@ -33,7 +32,11 @@ function getnew_userid(){
       userid_ajax = "You get no ID. Why? because we said so";
     }
   });
-  return userid_ajax;
+  try {
+    return userid_ajax;
+  } catch(e) {
+    return "42. If you have to ask why, you should be playing Cindy Crush instead...";
+  }
 }
 
 
@@ -43,6 +46,7 @@ function cleanup_all(){
     $.removeCookie(cookie);
   }
 }
+
 
 function save_userdata()
 {
@@ -56,12 +60,14 @@ function save_userdata()
   if (useremail_js == "Enter your e-Mail here" || username_js == "") {
     useremail_js = "shy@i.am";
   }
-  if (userid_js == "") {
+  if (userid_js == "" || userid_js == "42. If you have to ask why, you should be playing Cindy Crush instead...") {
     userid_js = getnew_userid();
-    
   }
+  setCookie("username",username_js,0);
+  setCookie("useremail",useremail_js,0);
+  setCookie("userid",userid_js,0);
   $.ajax({
-    url: 'http://' + server + '/checkid/' + userid_js ,
+    url: 'http://' + server + '/saveid/' + userid_js + '/name/' + username_js + '/email/' + useremail_js,
     success: function(result) {
       setCookie("username",username_js,0);
       setCookie("useremail",useremail_js,0);
@@ -71,5 +77,6 @@ function save_userdata()
       alert(result + e );
     }
   });
+      alert("sent");
 }
 

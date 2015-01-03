@@ -55,7 +55,7 @@ function save_userdata()
   useremail_js = document.getElementById("useremail_html_user").value;
   userid_js = document.getElementById("userid_html_user").value;
   if (username_js == "Enter your name here" || username_js == "") {
-    username_js = "Anonymous, I guess";
+    username_js = "Anonymous_I_guess";
   }
   if (useremail_js == "Enter your e-Mail here" || username_js == "") {
     useremail_js = "shy@i.am";
@@ -74,9 +74,9 @@ function save_userdata()
       setCookie("userid",userid_js,0);
     },
     error: function(e,result) {
-      alert(result + e );
+      alert("Something wrong happened while saving results" + result + e );
     }
   });
-      alert("sent");
+      alert("Logged in!");
 }
 

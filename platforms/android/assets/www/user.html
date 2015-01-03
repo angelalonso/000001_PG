@@ -9,13 +9,13 @@
   <script src="js/jquery.cookietools.js"></script>
   <script src="js/user_funcs.js"></script> -->
 </head>
-<body >
+<body onload="javascript:refresh_data_user()" >
 
 
 <div data-role="page" id="home" data-theme="b">
   <div data-role="header">
     <button data-role="button" data-inset="false" data-icon="gear" data-theme="a" onclick="javascript:window.location='index.html'" >Home</button>
-    <h1>{\ Your Data /}</h1>
+    <h1>User Config</h1>
   </div>
   <div data-role="content">
     <div data-role="fieldcontain">
@@ -30,7 +30,7 @@
       <label for="userid_html_user">ID:</label>
       <input type="text" name="userid_html_user" id="userid_html_user" disabled="true" />
     </div>
-    <button data-role="button" data-inset="false" data-theme="b" data-icon="check" onclick="javascript:save_userdata();refresh_data_user()" >LOG ME IN!</button>
+    <button data-role="button" data-inset="false" data-theme="b" data-icon="check" onclick="javascript:save_userdata();refresh_data_user();window.location='index.html'" >LOG ME IN!</button>
     <button data-role="button" data-inset="false" data-theme="b" data-icon="delete" onclick="javascript:cleanup_all();refresh_data_user()" >LOG ME OUT!</button>
   </div>
   <div data-role="footer" data-position="fixed">
@@ -39,8 +39,5 @@
 </div>
 
 
-<script type="text/javascript">
-  refresh_data_user();
-</script>
 </body>
 </html>
