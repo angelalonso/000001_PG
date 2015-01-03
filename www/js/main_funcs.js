@@ -1,19 +1,29 @@
 
-function initialize_boxes()
-  {
+function userlist(userid_js)
+  { 
     server='192.168.10.212:8000';
     $.ajax({
-      url: 'http://' + server + '/user/1',
+      url: 'http://' + server + '/getusers/' + userid_js,
       success: function(result) {
-        document.getElementById("userpokes_html_main").innerHTML = result;
+        var entries = result.split('###');
+        var $myList = $( "#userlist_html_main" );
+        var newItems = [];
+        $.each( entries, function( index, value ) {
+          if (value != "") {
+            uservalues = value.split('///');
+            newItems.push( '<li><a href="#">' + uservalues[1] + '</a></li>' );
+          }
+        });
+        $myList.append( newItems.join( "" ) );
+        $myList.listview( "refresh" );
       },
       error: function(e,result) {
-        alert(result + e); 
+        alert(result + e);
       }
     });
-    userid_js = getCookie("username");
-    document.getElementById("username_html_main").innerHTML = userid_js;
+    
   }
+
 
 function addone(username)
   {
