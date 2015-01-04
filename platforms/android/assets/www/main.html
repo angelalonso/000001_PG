@@ -8,11 +8,21 @@
   <script src="js/jquery.cookie.js"></script>
   <script src="js/jquery.cookietools.js"></script>
   <script src="js/main_funcs.js"></script>
+
+<script type='text/javascript'>
+$(document).ready(function() {
+  username_js = getCookie("username");
+  document.getElementById("username_html_main").innerHTML = username_js;
+  userid_js = getCookie("userid");
+  userlist(userid_js);
+});
+</script>
+
 </head>
-<body >
+<body  >
 
 
-<div data-role="page" id="home" data-theme="b">
+<div data-role="page" id="main" data-theme="b">
   <div data-role="header">
     <button data-role="button" data-inset="false" data-icon="gear" data-theme="a" onclick="javascript:window.location='user.html'" >User Config</button>
     <h1><div id="username_html_main">None</div></h1>
@@ -24,6 +34,8 @@
     <br><br>
     <button data-role="button" data-inset="false" data-theme="b" onclick="javascript:addone('Angel Alonso')" >Poke!</button>
     <button data-role="button" data-inset="false" data-theme="b" onclick="javascript:cleanall('Angel Alonso')" >Clean up!</button>
+    <ul data-role="listview" id="userlist_html_main" data-theme="a" data-inset="true">
+    </ul>
   </div>
   <div data-role="footer" data-position="fixed">
     <a href="index.html">&copy; Alonso Fonseca, still beta</a>
@@ -31,8 +43,5 @@
 </div>
 
 
-<script type="text/javascript">
-  initialize_boxes();
-</script>
 </body>
 </html>

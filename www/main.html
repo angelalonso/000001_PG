@@ -11,17 +11,12 @@
 
 <script type='text/javascript'>
 $(document).ready(function() {
-  username_js = getCookie("username");
-  userid_js = getCookie("userid");
-  userlist(userid_js);
-  document.getElementById("username_html_main").innerHTML = username_js;
-
+  refresh_html_main();
 });
 </script>
 
 </head>
-<body  >
-
+<body>
 
 <div data-role="page" id="main" data-theme="b">
   <div data-role="header">
@@ -40,6 +35,7 @@ $(document).ready(function() {
   </div>
   <div data-role="footer" data-position="fixed">
     <a href="index.html">&copy; Alonso Fonseca, still beta</a>
+    <div id="testing_cookies">None</div>
   </div>
 </div>
 
