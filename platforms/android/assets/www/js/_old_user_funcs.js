@@ -1,22 +1,22 @@
-function refresh_html_user(){
+
+function refresh_data_user()
+{
+  server='192.168.10.212:8000';
   username_js = getCookie("username");
   useremail_js = getCookie("useremail");
   userid_js = getCookie("userid");
-
-  if (username_js == null ){ 
-    username_js = "Enter your name here"; 
-  } 
-  if (useremail_js == null ){ 
-    useremail_js = "Enter your e-Mail here"; 
-  } 
+  if (username_js == null ){
+    username_js = "Enter your name here";
+  }
+  if (useremail_js == null ){
+    useremail_js = "Enter your e-Mail here";
+  }
   if (userid_js == null || userid_js == "undefined" ){
     userid_js = getnew_userid();
   }
   document.getElementById("username_html_user").value = username_js;
   document.getElementById("useremail_html_user").value = useremail_js;
   document.getElementById("userid_html_user").value = userid_js;
-  var dc = document.cookie;
-  document.getElementById("testing_cookies").innerHTML = dc;
 }
 
 
@@ -63,15 +63,15 @@ function save_userdata()
   if (userid_js == "" || userid_js == "42. If you have to ask why, you should be playing Cindy Crush instead...") {
     userid_js = getnew_userid();
   }
-  setCookie("username",username_js,18*365);
-  setCookie("useremail",useremail_js,18*365);
-  setCookie("userid",userid_js,18*365);
+  setCookie("username",username_js,0);
+  setCookie("useremail",useremail_js,0);
+  setCookie("userid",userid_js,0);
   $.ajax({
     url: 'http://' + server + '/saveid/' + userid_js + '/name/' + username_js + '/email/' + useremail_js,
     success: function(result) {
-      setCookie("username",username_js,18*365);
-      setCookie("useremail",useremail_js,18*365);
-      setCookie("userid",userid_js,18*365);
+      setCookie("username",username_js,0);
+      setCookie("useremail",useremail_js,0);
+      setCookie("userid",userid_js,0);
     },
     error: function(e,result) {
       alert("Something wrong happened while saving results" + result + e );
