@@ -19,7 +19,9 @@ function userlist(userid_js){
       $.each( entries, function( index, value ) {
         if (value != "") {
           uservalues = value.split('///');
-          newItems.push( '<li><a href="#">' + uservalues[1] + '</a></li>' );
+          //newItems.push( '<li><a href="#" onclick="javascript:poke_to("' + userid_js + '","' + uservalues[0] + '")">' + uservalues[1] + '</a></li>' );
+          newItems.push( '<li><a href="javascript:poke_to(' + userid_js + ',' + uservalues[0] + ');" >' + uservalues[1] + '</a></li>' );
+
         }
       });
       $myList.append( newItems.join( "" ) );
@@ -31,6 +33,9 @@ function userlist(userid_js){
   });
 }
 
+function poke_to(user_from,user_to){
+  alert(user_from + " to " + user_to);
+}
 
 function addone(username){
   server='192.168.10.212:8000';
