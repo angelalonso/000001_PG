@@ -3,6 +3,7 @@ function refresh_html_main(){
   document.getElementById("username_html_main").innerHTML = username_js;
   userid_js = getCookie("userid");
   pokelist(userid_js);
+  document.getElementById("userlist_html_main").innerHTML = "";
   userlist(userid_js);
   var dc = document.cookie;
   document.getElementById("testing_cookies").innerHTML = dc;
